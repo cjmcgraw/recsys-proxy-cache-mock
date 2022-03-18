@@ -54,7 +54,7 @@ cumbersome problem of satisfiying other dependencies.
 
 ## Couldn't I just write unit tests instead?
 
-Did I say not to write them. Unit tests definitely have their purpose. But from my experience 1 system test is worth
+Did I say not to write them? Unit tests definitely have their purpose. But from my experience 1 system test is worth
 1000 unit tests. 
 
 In this world of docker and dependency management as containers, why limit yourself?
