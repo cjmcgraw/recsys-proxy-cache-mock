@@ -4,3 +4,4 @@ services:
 
   recsys-proxy-cache:
     build: recsys-proxy-cache-mock
+    image: qarlm/recsys-proxy-cache-mock:0.1
