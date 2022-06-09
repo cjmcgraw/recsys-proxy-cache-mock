@@ -3,6 +3,7 @@ package recsys;
 
 option java_multiple_files = true;
 option java_package = "recsys_proxy_cache.protos";
+option cc_enable_arenas = true;
 option go_package = "github.com/cjmcgraw/recsys-proxy-cache;recsys_proxy_cache";
 
 service RecsysProxyCache {
@@ -30,5 +31,5 @@ message ScoreRequest {
 
 message ScoreResponse {
     // exactly same size as input items
-    repeated double scores = 1;
+    repeated float scores = 1;
 }
