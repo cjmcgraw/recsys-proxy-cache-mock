@@ -17,12 +17,12 @@ type server struct {
 
 func (s *server) GetScores(ctx context.Context, in *pb.ScoreRequest) (*pb.ScoreResponse, error) {
 	log.Printf("Received: %s", in)
-	scores := make([]float64, 0, len(in.GetItems()))
+	scores := make([]float32, 0, len(in.GetItems()))
 	log.Printf("generating scores for %d items", len(in.GetItems()))
 
 	log.Print("generating random scores")
 	for item := range in.GetItems() {
-		score := rand.Float64()
+		score := rand.Float32()
 		log.Printf("item:%v score: %v", item, score)
 		scores = append(scores, score)
 	}
