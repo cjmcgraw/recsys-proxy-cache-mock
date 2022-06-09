@@ -4,8 +4,10 @@ import (
 	"context"
 	"flag"
 	"log"
+    "io/ioutil"
 	"math/rand"
 	"net"
+    "os"
 	pb "recsysProxyCacheMock/github.com/cjmcgraw/recsys-proxy-cache"
 
 	"google.golang.org/grpc"
@@ -33,6 +35,7 @@ func (s *server) GetScores(ctx context.Context, in *pb.ScoreRequest) (*pb.ScoreR
 }
 
 func main() {
+
 	flag.Parse()
 	lis, err := net.Listen("tcp", ":50051")
 	if err != nil {
@@ -42,7 +45,14 @@ func main() {
 	s := grpc.NewServer()
 	pb.RegisterRecsysProxyCacheServer(s, &server{})
 	log.Printf("server listening at %v", lis.Addr())
+
+    if len(os.Getenv("LOGGING")) <= 0 {
+        log.Printf("set LOGGING=1 to enable logging")
+        log.SetOutput(ioutil.Discard)
+    }
+
 	if err := s.Serve(lis); err != nil {
+        log.SetOutput(os.Stderr)
 		log.Fatalf("failed to serve: %v", err)
 	}
 }
