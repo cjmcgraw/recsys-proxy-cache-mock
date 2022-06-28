@@ -3,6 +3,7 @@ module recsysProxyCacheMock
 go 1.18
 
 require (
+	github.com/dgryski/go-farm v0.0.0-20200201041132-a6ae2369ad13
 	google.golang.org/grpc v1.45.0
 	google.golang.org/protobuf v1.27.1
 )
