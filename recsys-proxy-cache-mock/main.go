@@ -55,7 +55,6 @@ func (s *server) GetScores(ctx context.Context, in *pb.ScoreRequest) (*pb.ScoreR
 
 		// hash it to a uint64
 		hash := farm.Fingerprint64(buf.Bytes())
-		log.Printf("hash:%v", hash)
 
 		// then we normalize it between 0 and 1
 		score := float64(hash) / float64(math.MaxUint64)

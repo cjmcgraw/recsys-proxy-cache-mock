@@ -4,6 +4,6 @@ services:
 
   recsys-proxy-cache:
     build: recsys-proxy-cache-mock
-    image: qarlm/recsys-proxy-cache-mock:latest
+    image: qarlm/recsys-proxy-cache-mock:v1.2
     environment:
       LOGGING: 1
